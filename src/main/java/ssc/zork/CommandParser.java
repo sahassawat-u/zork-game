@@ -15,7 +15,9 @@ public class CommandParser {
             return CommandType.GO;
         } else if(command.equals("load")) {
             return CommandType.LOAD;
-        } else if(command.equals("map")) {
+        } else if(command.equals("help")) {
+            return CommandType.HELP;
+        }else if(command.equals("map")) {
             return CommandType.MAP;
         } else if(command.equals("play")) {
             return CommandType.PLAY;
