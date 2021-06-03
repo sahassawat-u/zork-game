@@ -15,8 +15,13 @@ public class DropCommand implements Command {
 
     }
     @Override
-    public void takeAction(MyMap map, String item) {
+    public void takeAction(MyMap map, String itemName) {
         Player player = map.getPlayer();
-        player.drop(item);
+        if(itemName.equals("Shield"))player.reduceShield();
+        else player.drop(itemName);
+    }
+    @Override
+    public void takeAction(MyMap map, String item, Monster monster) {
+
     }
 }

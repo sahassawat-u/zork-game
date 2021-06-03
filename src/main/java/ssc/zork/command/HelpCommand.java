@@ -7,8 +7,9 @@ import ssc.zork.MyMap;
 public class HelpCommand implements Command {
     @Override
     public void takeAction(MyMap map) {
-        System.out.println("info - print out information of the player and the room that the player ");
+        System.out.println("\ninfo - print out information of the player and the room that the player ");
         System.out.println("take – take command is used to pick up the item in the current room");
+        System.out.println("use {item-name} - use the item from the bag");
         System.out.println("drop – drop item of choice that the player currently carries");
         System.out.println("attack – is used to attack a monster in the current room");
         System.out.println("go – move player to the room as specified by the direction");
@@ -18,11 +19,15 @@ public class HelpCommand implements Command {
         System.out.println("play {map-name} – play new game");
         System.out.println("load {saved-point-name} – load game state from saved point");
         System.out.println("save {saved-point-name}");
-        System.out.println("exit – exit whole game");
+        System.out.println("exit – exit whole game\n");
     }
 
     @Override
     public void takeAction(MyMap map, Monster monster) {
+
+    }
+    @Override
+    public void takeAction(MyMap map, String item, Monster monster) {
 
     }
     @Override

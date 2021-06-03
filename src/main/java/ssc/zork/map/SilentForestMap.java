@@ -31,6 +31,9 @@ public class SilentForestMap implements MyMap {
 //        Room[][] rooms = new Room[rows][cols];
 //        finished = true;
     }
+    public Room whereYouAre() {
+        return null;
+    }
     @Override
     public boolean isFinished() {
         return false;

@@ -1,14 +1,12 @@
 package ssc.zork.map;
+import ssc.zork.InRoomFactory;
 import ssc.zork.MyMap;
 import ssc.zork.Player;
 import ssc.zork.Room;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class HauntedCastleMap implements MyMap{
     private static final int rows=5;
@@ -20,6 +18,97 @@ public class HauntedCastleMap implements MyMap{
     private boolean finished;
     private int[] linearTransformRow = new int[rows];
     private int[] linearTransformCol = new int[cols];
+    public HauntedCastleMap(File file) {
+        InRoomFactory inRoomFactory = new InRoomFactory();
+        finished = false;
+        for(int i=0;i<rows;i++){
+            linearTransformRow[i] = i*2;
+        }
+        for(int i=0;i<cols;i++){
+            linearTransformCol[i] = i*2;
+        }
+        rooms = new Room[rows][cols];
+        mapToPrint = new String[2*rows-1][2*cols-1];
+        String map = "Haunted_castle_map.txt";
+        File gameMap = new File(map);
+        try {
+            Scanner readFile = new Scanner(file);
+            String data = readFile.nextLine();
+            int row = 0;
+            while (row<rows) {
+                data = readFile.nextLine();
+                String[] splitData = data.split(" ");
+                for (int col = 0; col < splitData.length; col++) {
+                    if(Integer.parseInt(splitData[col])==-1){
+                        rooms[row][col] = null;
+                    }
+                    else {
+                        rooms[row][col] = new Room();
+                        rooms[row][col].setStatus(inRoomFactory.createInRoom(Integer.parseInt(splitData[col])));
+//                        System.out.println("("+row+" "+col+") "+Integer.parseInt(splitData[col]));
+                    }
+                }
+                row++;
+            }
+            data = readFile.nextLine();
+            String[] position = data.split(",");
+            int posX = Integer.parseInt(position[0]);
+            int posY = Integer.parseInt(position[1]);
+            player = new Player(posX,posY);
+            rooms[posX][posY].setVisited(true);
+            data = readFile.nextLine();
+            String[] status = data.split(",");
+            player.setHealth(Integer.valueOf(status[0]));
+            player.setPower(Integer.valueOf(status[1]));
+            player.setShield(Integer.valueOf(status[2]));
+            if(readFile.hasNextLine()) {
+                data = readFile.nextLine();
+                String[] items = data.split(",");
+                List<String> myItems = new ArrayList<>(Arrays.asList(items));
+                player.setItems(myItems);
+            }
+            readFile.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        try {
+            Scanner readFile = new Scanner(gameMap);
+//            String data = readFile.nextLine();
+            String data = "";
+            int row = 0;
+            while (row<rows) {
+                data = readFile.nextLine();
+                String[] splitData = data.split(" ");
+                for (int col = 0; col < splitData.length; col++) {
+                    int newRow = linearTransformRow[row];
+                    int newCol = linearTransformCol[col];
+                    if(splitData[col].equals("x")) {
+                        mapToPrint[newRow][newCol] = " ";
+                    } else {
+                        Set<String> directions = new HashSet<>(Arrays.asList(splitData[col].split(",")));
+                        rooms[row][col].setDirectionList(directions);
+                        mapToPrint[newRow][newCol] = "o";
+                        if(directions.contains("E")) mapToPrint[newRow][newCol+1] = "-";
+                        if(directions.contains("W")) mapToPrint[newRow][newCol-1] = "-";
+                        if(directions.contains("N")) mapToPrint[newRow-1][newCol] = "|";
+                        if(directions.contains("S")) mapToPrint[newRow+1][newCol] = "|";
+                    }
+                }
+                row++;
+            }
+            readFile.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+    public Room whereYouAre() {
+        int[] position = this.player.getPosition();
+        Room room = this.rooms[position[0]][position[1]];
+        return room;
+    }
+
     public HauntedCastleMap() {
         finished = false;
         for(int i=0;i<rows;i++){
@@ -36,7 +125,7 @@ public class HauntedCastleMap implements MyMap{
         try {
             Scanner readFile = new Scanner(gameMap);
 //            String data = readFile.nextLine();
-            String data = readFile.nextLine();
+            String data = "";
             int row = 0;
             while (row<rows) {
                 data = readFile.nextLine();
@@ -46,7 +135,7 @@ public class HauntedCastleMap implements MyMap{
                     int newCol = linearTransformCol[col];
                     if(splitData[col].equals("x")) {
                         rooms[row][col] = null;
-                        mapToPrint[newRow][newCol] = "x";
+                        mapToPrint[newRow][newCol] = " ";
                     } else {
 //                        String[] x = splitData[col].split(",");
                         Set<String> directions = new HashSet<>(Arrays.asList(splitData[col].split(",")));
@@ -117,8 +206,9 @@ public class HauntedCastleMap implements MyMap{
         int[] playerPosition = getPlayerPosition();
         int posX = linearTransformRow[playerPosition[0]];
         int posY = linearTransformCol[playerPosition[1]];
+        System.out.println();
         for (int i = 0; i<2*rows-1; i++) {
-            boolean isNewLine= true;
+//            boolean isNewLine= true;
             for(int j=0;j<2*cols-1;j++) {
                 if(i==posX&&j==posY){
                     System.out.printf("p");
@@ -130,5 +220,6 @@ public class HauntedCastleMap implements MyMap{
             }
             System.out.println();
         }
+        System.out.println();
     }
 }

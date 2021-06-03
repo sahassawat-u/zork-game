@@ -11,4 +11,5 @@ public interface MyMap {
     void setPlayer(String direction);
     void quit();
     boolean isFinished();
+    Room whereYouAre();
 }

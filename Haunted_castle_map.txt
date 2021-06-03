@@ -1,7 +1,6 @@
-0
 x E,S W,S x S x
 x N,S N S N,E,W W,S
 E N,E,S,W W,E N,W N,S N,S
-x N,E W,E,S W,E W,N,E N
+x N,E W,E,S W,E W,N,E N,W
 x x N x x x
 4,2

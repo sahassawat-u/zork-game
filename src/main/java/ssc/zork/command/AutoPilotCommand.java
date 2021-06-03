@@ -17,4 +17,8 @@ public class AutoPilotCommand implements Command {
     public void takeAction(MyMap map, String item) {
 
     }
+    @Override
+    public void takeAction(MyMap map, String item, Monster monster) {
+
+    }
 }

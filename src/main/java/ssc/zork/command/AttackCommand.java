@@ -15,12 +15,18 @@ public class AttackCommand implements Command {
         Player player = map.getPlayer();
         monster.getAttacked(player);
         player.getAttacked(monster);
+        System.out.println("------Status------");
         System.out.println("monster health " + monster.getHealth());
         System.out.println("player health " + player.getHealth());
+        System.out.println("------------------");
     }
 
     @Override
     public void takeAction(MyMap map, String item) {
+
+    }
+    @Override
+    public void takeAction(MyMap map, String item, Monster monster) {
 
     }
 }
