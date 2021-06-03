@@ -9,14 +9,17 @@ public class ErrorCommand implements Command {
     public void takeAction(MyMap map) {
         System.out.println("Bad command");
     }
+
     @Override
     public void takeAction(MyMap map, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 

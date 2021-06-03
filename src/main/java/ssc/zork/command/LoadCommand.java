@@ -9,14 +9,17 @@ public class LoadCommand implements Command {
     public void takeAction(MyMap map) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item) {
 

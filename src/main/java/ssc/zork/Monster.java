@@ -3,23 +3,19 @@ package ssc.zork;
 import java.util.Random;
 
 public class Monster {
-    private static final int min = 20,max = 35;
+    private static final int MIN_HEALTH = 25, MAX_HEALTH = 40;
+    private static final int MIN_ATTACK = 20, MAX_ATTACK = 35;
     private int health, attack;
-    private boolean aggro,isAlive;
-    public Monster(){
+    private boolean aggro, isAlive;
+
+    public Monster() {
         aggro = false;
         isAlive = true;
-        health = 30;
-        attack = (int)Math.floor(Math.random()*(max-min+1)+min);
-//        System.out.println(attack);
+        health = (int) Math.floor(Math.random() * (MAX_HEALTH - MIN_HEALTH + 1) + MIN_HEALTH);;
+        attack = (int) Math.floor(Math.random() * (MAX_ATTACK - MIN_ATTACK + 1) + MIN_ATTACK);
     }
-//    public void battle(Player player) {
-//        Scanner sc = new Scanner(System.in);
-//        while(player.getHealth()>0 || getHealth() > 0) {
-//            if(sc.nextLine().equals("attack")){
-//        }
-//    }
-    public boolean getAlive(){
+
+    public boolean getAlive() {
         return isAlive;
     }
 
@@ -30,13 +26,15 @@ public class Monster {
     public void setAggro(boolean aggro) {
         this.aggro = aggro;
     }
-    public boolean getAggro(){
+
+    public boolean getAggro() {
         return aggro;
     }
+
     public void getAttacked(Player player) {
-        if(player.getShield()>0){
+        if (player.getShield() > 0) {
             player.reduceShield();
-        }else {
+        } else {
             health -= player.attack();
         }
     }
@@ -46,7 +44,7 @@ public class Monster {
     }
 
     public int getHealth() {
-        if(health<0) setHealth(0);
+        if (health < 0) setHealth(0);
         return health;
     }
 

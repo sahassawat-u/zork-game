@@ -1,0 +1,16 @@
+go N
+take
+go W
+take
+go N
+take
+go N
+info
+go N
+Y
+go N
+Y
+go E
+info
+go S
+info

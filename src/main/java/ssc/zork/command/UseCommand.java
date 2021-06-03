@@ -1,9 +1,6 @@
 package ssc.zork.command;
 
-import ssc.zork.Command;
-import ssc.zork.Monster;
-import ssc.zork.MyMap;
-import ssc.zork.Player;
+import ssc.zork.*;
 
 public class UseCommand implements Command {
     @Override
@@ -19,29 +16,28 @@ public class UseCommand implements Command {
     @Override
     public void takeAction(MyMap map, String itemName) {
         Player player = map.getPlayer();
-        if(player.hasThisItem(itemName) && itemName.equals("PowerUpItem")){
+        if (player.hasThisItem(itemName) && itemName.equals("PowerUpItem")) {
             System.out.println("Use PowerUp item");
-            player.decreaseHealth();
-            player.PowerUp();
-            player.drop(itemName);
-        } else if(player.hasThisItem(itemName) && itemName.equals("SleepingPotion")) {
+            Item item = player.getItem(itemName);
+            item.consume(player);
+        } else if (player.hasThisItem(itemName) && itemName.equals("SleepingPotion")) {
             System.out.println("Cannot use outside of combat!");
-            player.drop(itemName);
+        } else {
+            System.out.println("No such an item in your bag");
         }
     }
 
     @Override
     public void takeAction(MyMap map, String itemName, Monster monster) {
         Player player = map.getPlayer();
-        if(player.hasThisItem(itemName) && itemName.equals("PowerUpItem")){
+        if (player.hasThisItem(itemName) && itemName.equals("PowerUpItem")) {
             System.out.println("Use PowerUp item");
-            player.decreaseHealth();
-            player.PowerUp();
-            player.drop(itemName);
-        } else if(player.hasThisItem(itemName) && itemName.equals("SleepingPotion")) {
+            Item item = player.getItem(itemName);
+            item.consume(player);
+        } else if (player.hasThisItem(itemName) && itemName.equals("SleepingPotion")) {
             System.out.println("Use Sleeping potion");
-            monster.setAggro(false);
-            player.drop(itemName);
+            Item item = player.getItem(itemName);
+            item.consume(player, monster);
         } else {
             System.out.println("No such an item in your bag");
         }

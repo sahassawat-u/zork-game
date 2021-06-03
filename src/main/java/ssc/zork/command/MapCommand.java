@@ -9,14 +9,17 @@ public class MapCommand implements Command {
     public void takeAction(MyMap map) {
         map.printMap();
     }
+
     @Override
     public void takeAction(MyMap map, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item) {
 

@@ -7,18 +7,20 @@ import ssc.zork.MyMap;
 public class PlayCommand implements Command {
     @Override
     public void takeAction(MyMap map) {
-
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, Monster monster) {
 
     }
-    @Override
-    public void takeAction(MyMap map, String item) {
 
+    @Override
+    public void takeAction(MyMap map, String mapName) {
+        map.quit();
     }
 }

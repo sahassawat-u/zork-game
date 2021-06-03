@@ -15,13 +15,9 @@ public class TakeCommand implements Command {
             room.setTaken(true);
         }
         else if(weapon!=null) {
-            if(map.getPlayer().attack()<50) {
-                System.out.println("Take a weapon!");
-                System.out.println("Attack Power + 20");
-                room.setWeapon(null);
-                map.getPlayer().attachWeapon(weapon);
-                room.setTaken(true);
-            } else System.out.println("Current weapon has the same stat");
+            room.setWeapon(null);
+            map.getPlayer().attachWeapon(weapon);
+            room.setTaken(true);
         }
         else
             System.out.println("This room contains nothing");

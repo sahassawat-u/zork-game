@@ -6,7 +6,7 @@ import java.util.Map;
 public class InRoomFactory {
     private static Map<Integer, InRoom> inRoomMap = new HashMap<>() {{
         InRoom[] inRoom = InRoom.values();
-        for (int i=1;i<=inRoom.length;i++) {
+        for (int i=0;i<inRoom.length;i++) {
             put(i, inRoom[i]);
         }
     }};

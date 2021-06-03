@@ -26,10 +26,12 @@ public class HelpCommand implements Command {
     public void takeAction(MyMap map, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item) {
 

@@ -13,16 +13,19 @@ public class SaveCommand implements Command {
     public void takeAction(MyMap map) {
 
     }
+
     @Override
     public void takeAction(MyMap map, Monster monster) {
 
     }
+
     @Override
     public void takeAction(MyMap map, String item, Monster monster) {
 
     }
+
     @Override
-    public void takeAction(MyMap map, String fileName)  {
+    public void takeAction(MyMap map, String fileName) {
         try {
 //            File file = new File(fileName + ".txt");
 //            if (file.createNewFile()) {
@@ -31,7 +34,7 @@ public class SaveCommand implements Command {
 //                System.out.println("File already exists.");
 //            }
 //            FileWriter writer = new FileWriter(fileName+".txt");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".txt", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName + ".txt", true));
             writer.write("1");
             writer.newLine();
             Player player = map.getPlayer();
@@ -39,25 +42,25 @@ public class SaveCommand implements Command {
             for (int i = 0; i < rooms.length; i++) {
                 String line = "";
                 for (int j = 0; j < rooms[0].length; j++) {
-                    if(rooms[i][j]!=null)
-                        line+=rooms[i][j].getStatus()+" ";
-                    else line+=-1+" ";
+                    if (rooms[i][j] != null)
+                        line += rooms[i][j].getStatus() + " ";
+                    else line += -1 + " ";
                 }
                 writer.write(line);
                 writer.newLine();
             }
-            writer.write(player.getPosition()[0]+","+ player.getPosition()[1]);
+            writer.write(player.getPosition()[0] + "," + player.getPosition()[1]);
             writer.newLine();
-            writer.write(player.getHealth()+","+player.attack()+","+ player.getShield());
+            writer.write(player.getHealth() + "," + player.attack() + "," + player.getShield());
             writer.newLine();
             List<String> items = player.getItems();
             String itemsString = "";
-            for(String item : items){
-                itemsString+=item+",";
+            for (String item : items) {
+                itemsString += item + ",";
             }
             writer.write(itemsString);
             writer.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -11,12 +11,12 @@ public class CommandFactory {
         for (int i=0;i<commandTypes.length;i++) {
             put(commandTypes[i], commandTypes[i].getCommandClass());
         }
-//        put(CommandType.ERROR,CommandType.ERROR.getCommandClass());
     }};
+
     public Command createCommand(CommandType commandType) {
         try {
             return (Command) commandMap.get(commandType).newInstance();
-        } catch (InstantiationException e){
+        } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
