@@ -6,8 +6,12 @@ import ssc.zork.MyMap;
 
 public class ExitCommand implements Command {
     @Override
-    public void takeAction(MyMap map) {
+    public void takeAction() {
         System.exit(0);
+    }
+
+    @Override
+    public void takeAction(MyMap map) {
     }
 
     @Override

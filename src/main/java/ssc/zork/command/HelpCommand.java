@@ -6,6 +6,11 @@ import ssc.zork.MyMap;
 
 public class HelpCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
         System.out.println("\ninfo - print out information of the player and the room that the player ");
         System.out.println("take – take command is used to pick up the item in the current room");

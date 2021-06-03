@@ -6,6 +6,11 @@ import ssc.zork.MyMap;
 
 public class LoadCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
 
     }

@@ -4,6 +4,11 @@ import ssc.zork.*;
 
 public class TakeCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
         Room room = map.whereYouAre();
         Item item = room.getItem();

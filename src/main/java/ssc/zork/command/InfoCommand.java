@@ -4,6 +4,11 @@ import ssc.zork.*;
 
 public class InfoCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
         Player player = map.getPlayer();
         Room currentRoom = map.whereYouAre();

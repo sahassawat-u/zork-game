@@ -7,7 +7,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class GoCommand implements Command {
+
     private static Scanner sc = new Scanner(System.in);
+    @Override
+    public void takeAction() {
+
+    }
 
     @Override
     public void takeAction(MyMap map) {
@@ -16,7 +21,6 @@ public class GoCommand implements Command {
         int[] position = player.getPosition();
         Room room = rooms[position[0]][position[1]];
         Set<String> directions = room.getDirectionList();
-//        StringUtils.join(array, "");
         StringBuilder builder = new StringBuilder();
         for (String value : directions) {
             builder.append(value);

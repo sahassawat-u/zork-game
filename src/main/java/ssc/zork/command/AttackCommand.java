@@ -7,6 +7,11 @@ import ssc.zork.Player;
 
 public class AttackCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
     }
 

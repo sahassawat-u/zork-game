@@ -19,17 +19,18 @@ public class Game {
                 PrintInfo.printStartingGame();
                 which = sc.nextLine();
             }
-            MyMap map = loadMap(which);
+            MyMap map = loadMap(which,commandFactory,commandParser);
             System.out.println("The object is to kill all monsters " +"("+map.getObjective()+")");
             which = gameLoop(map, commandFactory, commandParser);
         }
     }
 
-    public static MyMap loadMap(String which) {
+    public static MyMap loadMap(String which,  CommandFactory commandFactory, CommandParser commandParser) {
         MyMap map = null;
         MapFactory mapFactory = new MapFactory();
         if(which.equals("exit")){
-            exit();
+            Command command = commandFactory.createCommand(commandParser.getCommand(which));
+            command.takeAction();
         }
         if (which.equals("1") || which.equals("HauntedCastle")) {
             System.out.println("Loading Haunted Castle...");
@@ -98,8 +99,5 @@ public class Game {
         if(map.finishObjective())System.out.println("The objective accomplished!\n");
         else System.out.println("Create new game...\n");
         return null;
-    }
-    public static void exit(){
-        System.exit(0);
     }
 }

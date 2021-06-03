@@ -8,6 +8,11 @@ import java.io.File;
 
 public class AutoPilotCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+
+    @Override
     public void takeAction(MyMap map) {
 
     }

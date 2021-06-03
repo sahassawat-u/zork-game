@@ -4,6 +4,10 @@ import ssc.zork.*;
 
 public class UseCommand implements Command {
     @Override
+    public void takeAction() {
+
+    }
+    @Override
     public void takeAction(MyMap map) {
 
     }
