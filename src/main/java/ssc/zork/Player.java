@@ -126,6 +126,7 @@ public class Player {
     }
 
     public void getAttacked(Monster monster) {
+        if(shield>0){reduceShield();return;}
         health -= monster.attack();
     }
 
