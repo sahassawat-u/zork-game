@@ -1,7 +1,7 @@
 package ssc.zork;
 
 
-import ssc.zork.map.HauntedCastleMap;
+import ssc.zork.map.MapType;
 //import ssc.zork.map.SilentForestMap;
 
 import java.io.BufferedReader;
@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MapFactory {
     private static Map<String, Class> mapByName = new HashMap<>() {{

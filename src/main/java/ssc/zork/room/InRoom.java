@@ -1,4 +1,4 @@
-package ssc.zork;
+package ssc.zork.room;
 
 public enum InRoom {
     WEAPON(0.3,1),

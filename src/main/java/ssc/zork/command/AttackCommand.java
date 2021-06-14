@@ -1,9 +1,9 @@
 package ssc.zork.command;
 
 import ssc.zork.Command;
-import ssc.zork.Monster;
+import ssc.zork.creature.Monster;
 import ssc.zork.MyMap;
-import ssc.zork.Player;
+import ssc.zork.creature.Player;
 
 public class AttackCommand implements Command {
     @Override

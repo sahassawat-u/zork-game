@@ -1,5 +1,8 @@
 package ssc.zork;
 
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
+
 import java.util.Scanner;
 
 public class Battle {

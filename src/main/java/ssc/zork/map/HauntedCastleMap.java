@@ -2,7 +2,7 @@ package ssc.zork.map;
 
 import ssc.zork.InRoomFactory;
 import ssc.zork.MyMap;
-import ssc.zork.Player;
+import ssc.zork.creature.Player;
 import ssc.zork.Room;
 
 import java.io.*;
@@ -130,8 +130,6 @@ public class HauntedCastleMap implements MyMap {
         rooms = new Room[rows][cols];
         mapToPrint = new String[2 * rows - 1][2 * cols - 1];
         String map = "Haunted_castle_map.txt";
-//        rooms = createMap(map);
-//        File gameMap = new File(map);
         try {
             FileReader fr = new FileReader(map);
             BufferedReader br = new BufferedReader(fr);

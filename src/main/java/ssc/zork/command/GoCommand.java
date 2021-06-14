@@ -1,10 +1,11 @@
 package ssc.zork.command;
 
 import ssc.zork.*;
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
 
 import java.util.Scanner;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class GoCommand implements Command {
 

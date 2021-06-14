@@ -1,6 +1,7 @@
 package ssc.zork.command;
 
 import ssc.zork.*;
+import ssc.zork.creature.Monster;
 
 public class TakeCommand implements Command {
     @Override

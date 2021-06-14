@@ -1,0 +1,6 @@
+E,S W,E W,E W,S x x
+N x x N,S x x
+x x E,S N,W,E W x
+x E W,N,S x x x
+x x N x x x
+2,2

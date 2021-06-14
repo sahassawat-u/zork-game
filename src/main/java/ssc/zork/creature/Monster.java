@@ -1,6 +1,4 @@
-package ssc.zork;
-
-import java.util.Random;
+package ssc.zork.creature;
 
 public class Monster {
     private static final int MIN_HEALTH = 25, MAX_HEALTH = 40;

@@ -1,4 +1,8 @@
-package ssc.zork;
+package ssc.zork.item;
+
+import ssc.zork.Item;
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
 
 public class ShieldItem implements Item {
 
@@ -7,7 +11,7 @@ public class ShieldItem implements Item {
         player.addShield();
     }
     @Override
-    public void consume(Player player,Monster monster) {
+    public void consume(Player player, Monster monster) {
     }
     @Override
     public String getItemName() {

@@ -1,4 +1,9 @@
-package ssc.zork;
+package ssc.zork.creature;
+
+import ssc.zork.Item;
+import ssc.zork.ItemFactory;
+import ssc.zork.Weapon;
+import ssc.zork.creature.Monster;
 
 import java.util.ArrayList;
 import java.util.List;

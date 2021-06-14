@@ -1,4 +1,8 @@
-package ssc.zork;
+package ssc.zork.item;
+
+import ssc.zork.Item;
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
 
 public class PowerUpItem implements Item {
 
@@ -9,7 +13,7 @@ public class PowerUpItem implements Item {
         player.drop(getItemName());
     }
     @Override
-    public void consume(Player player,Monster monster) {
+    public void consume(Player player, Monster monster) {
     }
     @Override
     public String getItemName() {

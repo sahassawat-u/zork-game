@@ -1,7 +1,7 @@
 package ssc.zork.command;
 
 import ssc.zork.Command;
-import ssc.zork.Monster;
+import ssc.zork.creature.Monster;
 import ssc.zork.MyMap;
 
 public class ExitCommand implements Command {

@@ -1,5 +1,7 @@
 package ssc.zork;
 
+import ssc.zork.room.InRoom;
+
 import java.util.HashMap;
 import java.util.Map;
 

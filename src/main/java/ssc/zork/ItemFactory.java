@@ -1,5 +1,10 @@
 package ssc.zork;
 
+import ssc.zork.item.PowerUpItem;
+import ssc.zork.item.ShieldItem;
+import ssc.zork.item.SleepPotionItem;
+import ssc.zork.room.InRoom;
+
 import java.util.Random;
 
 public class ItemFactory {

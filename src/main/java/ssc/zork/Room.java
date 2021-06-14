@@ -1,5 +1,9 @@
 package ssc.zork;
 
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
+import ssc.zork.room.InRoom;
+
 import java.util.*;
 
 public class Room {

@@ -1,8 +1,6 @@
 package ssc.zork;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import ssc.zork.creature.Player;
 
 public interface MyMap {
     Room[][] createMap(String mapName);

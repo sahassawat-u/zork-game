@@ -1,9 +1,10 @@
 package ssc.zork.command;
 
 import ssc.zork.*;
+import ssc.zork.creature.Monster;
+import ssc.zork.creature.Player;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
