@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static org.apache.commons.lang3.StringUtils.isNumeric;
+
 public class Game {
     private static Scanner sc = new Scanner(System.in);
     private static String which;
@@ -32,12 +34,10 @@ public class Game {
             Command command = commandFactory.createCommand(commandParser.getCommand(which));
             command.takeAction();
         }
-        if (which.equals("1") || which.equals("HauntedCastle")) {
-            System.out.println("Loading Haunted Castle...");
-            map = mapFactory.createMap("HauntedCastle");
-        } else if (which.equals("2") || which.equals("SilentForest")) {
-            System.out.println("Loading Silent Forest...");
-            map = mapFactory.createMap("SilentForest");
+        if(isNumeric(which)){
+            map = mapFactory.createMap(Integer.parseInt(which));
+        } else {
+            map = mapFactory.createMap(which);
         }
         if (map == null) {
             String[] loadSaved = which.split(" ");

@@ -70,7 +70,6 @@ public class HauntedCastleMap implements MyMap {
             player.setPower(Integer.valueOf(status[1]));
             player.setShield(Integer.valueOf(status[2]));
             if ((line = br.readLine()) != null) {
-//                line = br.readLine();
                 String[] items = line.split(",");
                 List<String> myItems = new ArrayList<>(Arrays.asList(items));
                 player.setItems(myItems);
@@ -99,7 +98,6 @@ public class HauntedCastleMap implements MyMap {
                     } else {
                         Set<String> directions = new HashSet<>(Arrays.asList(splitData[col].split(",")));
                         rooms[row][col].setDirectionList(directions);
-//                        if(rooms[row][col].getHasMonster())numRooms++;
                         mapToPrint[newRow][newCol] = "o";
                         if (directions.contains("E")) mapToPrint[newRow][newCol + 1] = "-";
                         if (directions.contains("W")) mapToPrint[newRow][newCol - 1] = "-";
@@ -138,9 +136,6 @@ public class HauntedCastleMap implements MyMap {
             FileReader fr = new FileReader(map);
             BufferedReader br = new BufferedReader(fr);
             String line = "";
-//            Scanner readFile = new Scanner(gameMap);
-//            String data = readFile.nextLine();
-//            String data = "";
             int row = 0;
             while (row < rows) {
 
